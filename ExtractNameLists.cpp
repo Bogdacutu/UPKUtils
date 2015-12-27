@@ -3,6 +3,7 @@
 
 #include "UPKInfo.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
 
