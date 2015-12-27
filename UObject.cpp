@@ -425,18 +425,9 @@ std::string UStruct::Deserialize(std::istream& stream, UPKInfo& info)
     if ((unsigned)stream.tellg() > info.GetExportEntry(ThisRef).SerialOffset + info.GetExportEntry(ThisRef).SerialSize)
         return ss.str();
     ss << "UStruct:\n";
-    StructOffset = stream.tellg();
-    stream.read(reinterpret_cast<char*>(&ScriptTextRef), sizeof(ScriptTextRef));
-    ss << "\tScriptTextRef = " << FormatHEX((uint32_t)ScriptTextRef) << " -> " << info.ObjRefToName(ScriptTextRef) << std::endl;
-    FirstChildRefOffset = stream.tellg();
+    StructOffset = FirstChildRefOffset = stream.tellg();
     stream.read(reinterpret_cast<char*>(&FirstChildRef), sizeof(FirstChildRef));
     ss << "\tFirstChildRef = " << FormatHEX((uint32_t)FirstChildRef) << " -> " << info.ObjRefToName(FirstChildRef) << std::endl;
-    stream.read(reinterpret_cast<char*>(&CppTextRef), sizeof(CppTextRef));
-    ss << "\tCppTextRef = " << FormatHEX((uint32_t)CppTextRef) << " -> " << info.ObjRefToName(CppTextRef) << std::endl;
-    stream.read(reinterpret_cast<char*>(&Line), sizeof(Line));
-    ss << "\tLine = " << FormatHEX(Line) << std::endl;
-    stream.read(reinterpret_cast<char*>(&TextPos), sizeof(TextPos));
-    ss << "\tTextPos = " << FormatHEX(TextPos) << std::endl;
     stream.read(reinterpret_cast<char*>(&ScriptMemorySize), sizeof(ScriptMemorySize));
     ss << "\tScriptMemorySize = " << FormatHEX(ScriptMemorySize) << std::endl;
     stream.read(reinterpret_cast<char*>(&ScriptSerialSize), sizeof(ScriptSerialSize));

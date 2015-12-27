@@ -164,11 +164,7 @@ public:
     size_t GetFirstChildRefOffset() { return FirstChildRefOffset; }
 protected:
     /// persistent
-    UObjectReference ScriptTextRef;
     UObjectReference FirstChildRef;
-    UObjectReference CppTextRef;
-    uint32_t Line;
-    uint32_t TextPos;
     uint32_t ScriptMemorySize;
     uint32_t ScriptSerialSize;
     std::vector<char> DataScript;
