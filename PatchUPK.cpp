@@ -23,7 +23,7 @@ string int2fstr(int val)
 
 int main(int argN, char* argV[])
 {
-    cout << "PatchUPK" << endl;
+    cout << "PatchUPK for Android" << endl;
 
     if (argN < 2 || argN > 3)
     {

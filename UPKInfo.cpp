@@ -71,7 +71,7 @@ bool UPKInfo::Read(std::istream& stream)
     stream.read(reinterpret_cast<char*>(&tmpVer), 4);
     Summary.Version = tmpVer % (1 << 16);
     Summary.LicenseeVersion = tmpVer >> 16;
-    if (Summary.Version != 845)
+    if (Summary.Version != 870)
     {
         ReadError = UPKReadErrors::BadVersion;
         return ReadCompressedHeader(stream);
